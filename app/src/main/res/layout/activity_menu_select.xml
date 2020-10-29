@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".activities.MenuSelectActivity">
+
+    <Button
+        android:id="@+id/button_create_new_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/create_new_menu_text" />
+
+    <Button
+        android:id="@+id/button_select_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_create_new_menu"
+        android:text="@string/select_menu_text" />
+
+    <Button
+        android:id="@+id/button_begin_hosting_event"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_select_menu"
+        android:text="@string/begin_hosting_text" />
+
+</RelativeLayout>
