@@ -10,5 +10,7 @@ public class Constants {
         public static final String EVENT_SEND_MENU = "send menu";
         public static final String EVENT_ORDER_READY = "order ready";
         public static final String EVENT_GUEST_HAS_ORDER = "guest has order";
+        public static final String EVENT_PIN_RECEIVED = "pin";
+        public static final String EVENT_REQUEST_PIN = "request pin";
     }
 }
