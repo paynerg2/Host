@@ -13,4 +13,20 @@ public class Constants {
         public static final String EVENT_PIN_RECEIVED = "pin";
         public static final String EVENT_REQUEST_PIN = "request pin";
     }
+
+    public static class GuestEvent {
+        private GuestEvent() {}
+
+        public static final String EVENT_JOIN = "join";
+        public static final String EVENT_SEND_ORDER = "send order";
+        public static final String EVENT_JOIN_ROOM = "join room";
+        public static final String EVENT_REQUEST_MENU = "request menu";
+        public static final String EVENT_MENU_RECEIVED = "menu received";
+    }
+
+    public static class GuestActivityExtras {
+        private GuestActivityExtras() {}
+
+        public static final String EXTRA_PIN = "EXTRA_PIN";
+    }
 }
