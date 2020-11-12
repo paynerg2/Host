@@ -102,10 +102,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String selectQuery = "SELECT * FROM " + TABLE_MENU + " WHERE "
                 + KEY_MENU_ID + " = " + menu_id;
 
-        Log.e(TAG, selectQuery);
+        Log.i(TAG, selectQuery);
 
         Cursor c = db. rawQuery(selectQuery, null);
 
+        if(c != null) {
+            c.moveToFirst();
+        }
+
+        return getMenuFromRow(c);
+    }
+
+    public Menu getMenuByName(String menuName){
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String selectQuery = "SELECT * FROM " + TABLE_MENU + " WHERE "
+                + KEY_MENU_NAME + " = '" + menuName + "'";
+
+        Log.i(TAG, selectQuery);
+
+        Cursor c = db.rawQuery(selectQuery, null);
         if(c != null) {
             c.moveToFirst();
         }
@@ -117,7 +133,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         List<Menu> menus = new ArrayList<>();
         String selectQuery = "SELECT * FROM " + TABLE_MENU;
 
-        Log.e(TAG, selectQuery);
+        Log.i(TAG, selectQuery);
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = db.rawQuery(selectQuery, null);
@@ -159,6 +175,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(KEY_ITEM_NAME, menuItem.getItemName());
         values.put(KEY_DESCRIPTION, menuItem.getDescription());
+        values.put(FOREIGN_KEY_MENU_ID, menuItem.getMenu_id());
 
         return db.insert(TABLE_MENU_ITEM, null, values);
     }
@@ -167,7 +184,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         List<MenuItem> menuItems = new ArrayList<>();
         String selectQuery = "SELECT * FROM " + TABLE_MENU_ITEM;
 
-        Log.e(TAG, selectQuery);
+        Log.i(TAG, selectQuery);
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = db.rawQuery(selectQuery, null);
@@ -188,7 +205,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String selectQuery = "SELECT * FROM " + TABLE_MENU_ITEM + " WHERE "
                 + KEY_ITEM_ID + " = " + menu_item_id;
 
-        Log.e(TAG, selectQuery);
+        Log.i(TAG, selectQuery);
 
         Cursor c = db.rawQuery(selectQuery, null);
 
@@ -203,11 +220,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         List<MenuItem> menuItems = new ArrayList<>();
 
         String selectQuery = "SELECT * FROM " + TABLE_MENU_ITEM + " mi, "
-                + TABLE_MENU + " m, WHERE mi." + KEY_MENU_NAME + " = '"
+                + TABLE_MENU + " m WHERE m." + KEY_MENU_NAME + " = '"
                 + menu_name + "' AND mi." + FOREIGN_KEY_MENU_ID + " = m."
                 + KEY_MENU_ID;
 
-        Log.e(TAG, selectQuery);
+        Log.i(TAG, selectQuery);
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = db.rawQuery(selectQuery, null);
@@ -228,6 +245,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(KEY_ITEM_NAME, menuItem.getItemName());
         values.put(KEY_DESCRIPTION, menuItem.getDescription());
+        values.put(FOREIGN_KEY_MENU_ID, menuItem.getMenu_id());
 
         return db.update(TABLE_MENU_ITEM, values, KEY_ITEM_ID + " = ?",
                 new String[] { String.valueOf(menuItem.getId()) });
