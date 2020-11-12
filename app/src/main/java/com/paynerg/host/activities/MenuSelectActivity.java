@@ -1,6 +1,8 @@
 package com.paynerg.host.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -26,19 +28,29 @@ public class MenuSelectActivity extends AppCompatActivity implements View.OnClic
         buttonCreateNewMenu = findViewById(R.id.button_create_new_menu);
         buttonSelectMenu = findViewById(R.id.button_select_menu);
         buttonBeginHosting = findViewById(R.id.button_begin_hosting_event);
+
+        buttonCreateNewMenu.setOnClickListener(this);
+        buttonSelectMenu.setOnClickListener(this);
+        buttonBeginHosting.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
+        Log.i("onclick", "clicked");
         switch(v.getId()){
             case R.id.button_create_new_menu:
-                // Open activity to create new menu
+                Log.i("onclick", "button_create_new_menu");
+                Intent addMenuIntent = new Intent(MenuSelectActivity.this,
+                        AddMenuActivity.class);
+                startActivity(addMenuIntent);
                 break;
             case R.id.button_select_menu:
                 // Open fragment to choose one of the created menus
                 break;
             case R.id.button_begin_hosting_event:
-                // Open the activity to find nearby devices and share the selected menu
+                Intent hostIntent = new Intent(MenuSelectActivity.this,
+                        HostActivity.class);
+                startActivity(hostIntent);
                 break;
             default:
                 break;

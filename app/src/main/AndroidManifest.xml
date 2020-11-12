@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activities.GuestActivity"></activity>
+        <activity android:name=".activities.AddMenuItemActivity"></activity>
+        <activity android:name=".activities.MenuContentsActivity" />
+        <activity android:name=".activities.AddMenuActivity" />
+        <activity android:name=".activities.GuestActivity" />
         <activity android:name=".activities.HostActivity" />
         <activity android:name=".activities.MenuSelectActivity" />
         <activity android:name=".activities.MainActivity">

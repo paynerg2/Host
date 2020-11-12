@@ -15,4 +15,12 @@
     <string name="menu_form_name_text">Menu Name</string>
     <string name="menu_form_header_text">Add Menu</string>
     <string name="submit_menu_form_text">Create New Menu</string>
+    <string name="add_menu_item_text">Add Item</string>
+
+    <!-- Extras -->
+    <string name="EXTRA_MENU_NAME">com.paynerg.host.extra.MENU_NAME</string>
+    <string name="menu_item_form_name_text">Name</string>
+    <string name="menu_item_form_description_text">Description</string>
+    <string name="submit_menu_item_form_text">Add Menu Item</string>
+    <string name="menu_item_form_header_text">New Menu Item</string>
 </resources>
